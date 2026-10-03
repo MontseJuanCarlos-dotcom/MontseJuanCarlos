@@ -92,17 +92,19 @@ a{color:inherit}
 
 /* Foto de portada */
 .hero-photo{
-  position:absolute;
-  z-index:0;
-  top:78px;
-  left:50%;
-  width:min(72vw,900px);
-  height:calc(100svh - 145px);
-  transform:translateX(-50%);
-  background-image:url("portada.jpg");
-  background-repeat:no-repeat;
-  background-position:center center;
-  background-size:contain;
+  position:absolute !important;
+  z-index:0 !important;
+  top:105px !important;
+  left:50% !important;
+  width:58vw !important;
+  max-width:760px !important;
+  height:68svh !important;
+  transform:translateX(-50%) !important;
+  background-image:url("portada.jpg") !important;
+  background-repeat:no-repeat !important;
+  background-position:center center !important;
+  background-size:contain !important;
+  background-color:transparent !important;
 }
 
 /* Capa MUY ligera para que el texto se lea,
@@ -677,11 +679,12 @@ footer p{margin:5px}
      La hacemos algo más pequeña para que no recorte a ninguno.
   */
   .hero-photo{
-    top:72px;
-    width:82vw;
-    height:54svh;
-    background-size:contain;
-    background-position:center top;
+    top:90px !important;
+    width:70vw !important;
+    max-width:620px !important;
+    height:52svh !important;
+    background-size:contain !important;
+    background-position:center center !important;
   }
 
   .hero-content{
@@ -710,14 +713,15 @@ footer p{margin:5px}
      La fotografía mantiene su proporción completa.
   */
   .hero-photo{
-    top:76px;
-    left:50%;
-    width:86vw;
-    height:50svh;
-    transform:translateX(-50%);
-    background-size:contain;
-    background-position:center top;
-    background-repeat:no-repeat;
+    top:72px !important;
+    left:50% !important;
+    width:78vw !important;
+    max-width:430px !important;
+    height:43svh !important;
+    transform:translateX(-50%) !important;
+    background-size:contain !important;
+    background-position:center center !important;
+    background-repeat:no-repeat !important;
   }
 
   .hero-overlay{
