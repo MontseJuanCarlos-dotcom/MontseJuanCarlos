@@ -94,11 +94,11 @@ a{color:inherit}
 .hero-photo{
   position:absolute !important;
   z-index:0 !important;
-  top:105px !important;
+  top:82px !important;
   left:50% !important;
-  width:58vw !important;
-  max-width:760px !important;
-  height:68svh !important;
+  width:min(68vw,900px) !important;
+  max-width:900px !important;
+  height:72svh !important;
   transform:translateX(-50%) !important;
   background-image:url("portada.jpg") !important;
   background-repeat:no-repeat !important;
@@ -114,12 +114,18 @@ a{color:inherit}
   z-index:1;
   inset:0;
   background:
+    radial-gradient(
+      ellipse at center 47% 52%,
+      rgba(5,8,7,.10) 0%,
+      rgba(5,8,7,.18) 42%,
+      rgba(5,8,7,.58) 100%
+    ),
     linear-gradient(
       180deg,
-      rgba(8,13,11,.38) 0%,
-      rgba(8,13,11,.08) 30%,
-      rgba(8,13,11,.10) 65%,
-      rgba(8,13,11,.62) 100%
+      rgba(5,8,7,.34) 0%,
+      rgba(5,8,7,.04) 34%,
+      rgba(5,8,7,.12) 60%,
+      rgba(5,8,7,.68) 100%
     );
 }
 
@@ -129,9 +135,9 @@ a{color:inherit}
   z-index:2;
   align-self:end;
   text-align:center;
-  max-width:760px;
-  padding:30px 24px 55px;
-  text-shadow:0 2px 16px rgba(0,0,0,.45);
+  max-width:820px;
+  padding:20px 24px 46px;
+  text-shadow:0 2px 16px rgba(0,0,0,.62);
 }
 
 .eyebrow{
@@ -151,9 +157,11 @@ h2{
 }
 
 .hero h1{
-  font-size:clamp(60px,9vw,112px);
-  line-height:.83;
-  margin:0 0 22px;
+  font-size:clamp(58px,7vw,88px);
+  line-height:.88;
+  margin:0 0 18px;
+  letter-spacing:.01em;
+  text-shadow:0 3px 18px rgba(0,0,0,.72);
 }
 
 .hero h1 span{font-size:.7em}
@@ -621,10 +629,148 @@ footer p{margin:5px}
 }
 
 /* =========================================================
-   TABLET
+   PORTADA · DISEÑO LIMPIO
+   Escritorio: foto izquierda + texto derecha.
+   Contador centrado en toda la pantalla.
    ========================================================= */
 
-@media(max-width:850px){
+@media (min-width:851px){
+
+  .hero{
+    min-height:100svh !important;
+    display:grid !important;
+    grid-template-columns:minmax(0, 1fr) minmax(380px, .82fr) !important;
+    grid-template-rows:1fr !important;
+    align-items:center !important;
+    column-gap:12px !important;
+    padding:82px clamp(28px, 5vw, 78px) 150px !important;
+    overflow:hidden !important;
+  }
+
+  .hero-photo{
+    position:relative !important;
+    inset:auto !important;
+    z-index:0 !important;
+    width:100% !important;
+    height:min(72svh, 700px) !important;
+    max-width:760px !important;
+    justify-self:end !important;
+    transform:none !important;
+    background-image:url("portada.jpg") !important;
+    background-repeat:no-repeat !important;
+    background-position:center center !important;
+    background-size:contain !important;
+    background-color:transparent !important;
+  }
+
+  .hero-overlay{
+    z-index:1 !important;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(5,8,7,.03) 0%,
+        rgba(5,8,7,.03) 45%,
+        rgba(5,8,7,.28) 100%
+      ) !important;
+    pointer-events:none !important;
+  }
+
+  .hero-content{
+    position:relative !important;
+    z-index:2 !important;
+    align-self:center !important;
+    justify-self:start !important;
+    width:100% !important;
+    max-width:520px !important;
+    padding:20px 10px 30px 12px !important;
+    text-align:left !important;
+    text-shadow:0 2px 15px rgba(0,0,0,.58) !important;
+  }
+
+  .hero h1{
+    font-size:clamp(56px, 5.5vw, 82px) !important;
+    line-height:.88 !important;
+    margin:0 0 18px !important;
+    max-width:510px !important;
+    text-shadow:0 3px 18px rgba(0,0,0,.72) !important;
+  }
+
+  .hero-title{
+    font-size:18px !important;
+    letter-spacing:.24em !important;
+  }
+
+  .hero-copy{
+    max-width:430px !important;
+    margin:22px 0 5px !important;
+    font-size:18px !important;
+  }
+
+  .script{
+    font-size:30px !important;
+  }
+
+  /* Contador: centrado respecto a toda la portada */
+  .countdown{
+    position:absolute !important;
+    z-index:4 !important;
+    left:50% !important;
+    bottom:66px !important;
+    transform:translateX(-50%) !important;
+    width:max-content !important;
+    margin:0 !important;
+    padding-top:18px !important;
+    display:flex !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:20px !important;
+  }
+
+  .countdown::before{
+    content:"" !important;
+    position:absolute !important;
+    top:0 !important;
+    left:50% !important;
+    width:110px !important;
+    height:1px !important;
+    transform:translateX(-50%) !important;
+    background:rgba(255,255,255,.32) !important;
+  }
+
+  .countdown div{
+    min-width:70px !important;
+    text-align:center !important;
+  }
+
+  .countdown strong{
+    font-size:40px !important;
+  }
+
+  .countdown i{
+    height:40px !important;
+  }
+
+  .scroll-cue{
+    display:inline-block !important;
+    margin-top:10px !important;
+  }
+
+  .leaf-left{
+    left:18px !important;
+    bottom:10px !important;
+  }
+
+  .leaf-right{
+    right:18px !important;
+    bottom:10px !important;
+  }
+}
+
+/* =========================================================
+   TABLET · FOTO ARRIBA + TEXTO DEBAJO
+   ========================================================= */
+
+@media (max-width:850px) and (min-width:481px){
 
   .site-header{
     justify-content:flex-end;
@@ -644,9 +790,7 @@ footer p{margin:5px}
   }
 
   .nav.open{display:flex}
-
   .nav a{padding:13px 15px}
-
   .menu-toggle{display:block}
 
   .story-grid,
@@ -663,116 +807,179 @@ footer p{margin:5px}
   }
 
   .section{padding:75px 20px}
-
   .section h2{font-size:52px}
 
-  .countdown{gap:9px}
+  .hero{
+    min-height:100svh !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto auto !important;
+    align-content:center !important;
+    gap:0 !important;
+    padding:78px 20px 30px !important;
+  }
 
-  .countdown div{min-width:59px}
-
-  .countdown strong{font-size:34px}
-
-  .countdown i{height:35px}
-
-  /*
-     En tablet la foto sigue completa.
-     La hacemos algo más pequeña para que no recorte a ninguno.
-  */
   .hero-photo{
-    top:90px !important;
-    width:70vw !important;
-    max-width:620px !important;
-    height:52svh !important;
+    position:relative !important;
+    inset:auto !important;
+    width:78vw !important;
+    max-width:700px !important;
+    height:55svh !important;
+    transform:none !important;
+    justify-self:center !important;
     background-size:contain !important;
     background-position:center center !important;
   }
 
   .hero-content{
-    align-self:end;
-    padding:20px 24px 42px;
+    position:relative !important;
+    align-self:auto !important;
+    justify-self:center !important;
+    max-width:700px !important;
+    padding:12px 20px 20px !important;
+    text-align:center !important;
   }
 
-  .hero h1{font-size:68px}
+  .hero h1{font-size:clamp(52px,8vw,70px) !important}
 
+  .countdown{
+    position:relative !important;
+    left:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    width:max-content !important;
+    margin:28px auto 0 !important;
+    padding-top:18px !important;
+    gap:10px !important;
+  }
+
+  .countdown::before{
+    content:"" !important;
+    position:absolute !important;
+    top:0 !important;
+    left:50% !important;
+    width:90px !important;
+    height:1px !important;
+    transform:translateX(-50%) !important;
+    background:rgba(255,255,255,.30) !important;
+  }
+
+  .countdown div{min-width:59px !important}
+  .countdown strong{font-size:34px !important}
+  .countdown i{height:35px !important}
   .leaf{font-size:55px}
 }
 
 /* =========================================================
-   MÓVIL
+   MÓVIL · FOTO ARRIBA + TEXTO DEBAJO
    ========================================================= */
 
-@media(max-width:480px){
+@media (max-width:480px){
 
-  .hero{
-    min-height:100svh;
+  .site-header{
+    justify-content:flex-end;
   }
 
-  /*
-     MUY IMPORTANTE:
-     NO usamos "cover" aquí.
-     La fotografía mantiene su proporción completa.
-  */
+  .nav{
+    display:none;
+    position:absolute;
+    top:62px;
+    left:10px;
+    right:10px;
+    flex-direction:column;
+    gap:0;
+    padding:8px;
+    background:rgba(22,31,27,.96);
+    border-radius:12px;
+  }
+
+  .nav.open{display:flex}
+  .nav a{padding:13px 15px}
+  .menu-toggle{display:block}
+
+  .story-grid,
+  .two-col,
+  .music-grid,
+  .gallery{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .section{padding:75px 20px}
+  .section h2{font-size:46px}
+
+  .hero{
+    min-height:100svh !important;
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    grid-template-rows:auto auto !important;
+    align-content:center !important;
+    gap:0 !important;
+    padding:68px 12px 25px !important;
+  }
+
   .hero-photo{
-    top:72px !important;
-    left:50% !important;
-    width:78vw !important;
-    max-width:430px !important;
-    height:43svh !important;
-    transform:translateX(-50%) !important;
+    position:relative !important;
+    inset:auto !important;
+    width:92vw !important;
+    max-width:470px !important;
+    height:45svh !important;
+    transform:none !important;
+    justify-self:center !important;
     background-size:contain !important;
     background-position:center center !important;
     background-repeat:no-repeat !important;
   }
 
-  .hero-overlay{
-    background:
-      linear-gradient(
-        180deg,
-        rgba(8,13,11,.30) 0%,
-        rgba(8,13,11,.02) 32%,
-        rgba(8,13,11,.15) 58%,
-        rgba(8,13,11,.72) 100%
-      );
-  }
-
   .hero-content{
-    align-self:end;
-    max-width:100%;
-    padding:20px 16px 34px;
+    position:relative !important;
+    align-self:auto !important;
+    justify-self:center !important;
+    width:100% !important;
+    max-width:500px !important;
+    padding:12px 15px 20px !important;
+    text-align:center !important;
   }
 
   .hero h1{
-    font-size:57px;
-    margin-bottom:15px;
+    font-size:clamp(44px,12vw,62px) !important;
+    line-height:.9 !important;
+    margin-bottom:12px !important;
   }
 
   .hero-copy{
-    font-size:16px;
-    margin-top:14px;
+    font-size:16px !important;
+    margin-top:12px !important;
   }
 
-  .script{font-size:27px}
+  .script{font-size:27px !important}
 
   .countdown{
-    margin-top:22px;
-    gap:6px;
+    position:relative !important;
+    left:auto !important;
+    bottom:auto !important;
+    transform:none !important;
+    width:max-content !important;
+    margin:28px auto 0 !important;
+    padding-top:18px !important;
+    gap:7px !important;
   }
 
-  .countdown div{min-width:50px}
-
-  .countdown strong{font-size:29px}
-
-  .countdown small{
-    font-size:7px;
-    letter-spacing:.14em;
+  .countdown::before{
+    content:"" !important;
+    position:absolute !important;
+    top:0 !important;
+    left:50% !important;
+    width:80px !important;
+    height:1px !important;
+    transform:translateX(-50%) !important;
+    background:rgba(255,255,255,.30) !important;
   }
 
-  .countdown i{height:30px}
-
-  .intro h2,
-  .section h2{
-    font-size:46px;
-  }
+  .countdown div{min-width:50px !important}
+  .countdown strong{font-size:29px !important}
+  .countdown small{font-size:7px !important}
+  .countdown i{height:34px !important}
 
   .photo-card img,
   .gallery-main img{
