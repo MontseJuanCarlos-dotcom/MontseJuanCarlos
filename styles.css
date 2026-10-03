@@ -982,3 +982,21 @@ footer p{margin:5px}
   .countdown i{height:34px !important}
 }
 
+/* =========================================================
+   AJUSTE FINAL PORTADA — CONTADOR MÁS ABAJO
+   Mantiene el contador centrado y evita que se mezcle con el texto.
+   ========================================================= */
+@media (min-width:851px){
+  .countdown{
+    bottom:28px !important;
+    margin:0 !important;
+  }
+
+  .scroll-cue{
+    position:absolute !important;
+    right:clamp(70px,10vw,170px) !important;
+    bottom:82px !important;
+    margin:0 !important;
+    z-index:6 !important;
+  }
+}
